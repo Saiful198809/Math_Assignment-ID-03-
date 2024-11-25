@@ -1,12 +1,13 @@
+
 library(readxl)
 library(rstudioapi)
 
 # Set working directory to the location of your Excel file
 # Set the working directory to the folder where the file is located
-setwd("C:\Users\saifu\OneDrive\Desktop\Math Assignment")
+setwd("C:/Users/saifu/OneDrive/Desktop/Math Assignment")
 
 # Verify if the file exists
-file.exists("United Airlines Aircraft Operating Statistics- Cost Per Block Hour (Unadjusted).xls")
+file.exists("C:/Users/saifu/OneDrive/Desktop/Math Assignment.xls")
 # If the file exists, this should return TRUE
 
 # If the file extension is .xlsx, update the file name accordingly:
@@ -24,7 +25,7 @@ get_salary_wages <- function(row_num, data = all_data) {
   return(na.omit(as.numeric(data[row_num, -1])))
 }
 get_salary_wages
-# Ensure that salary_wages data has 28 points
+# Ensure that salary_wages data has 23 points
 # Extract salary data from the dataset using get_salary_wages()
 salary_wages_snbodies <- get_salary_wages(6)    # For small narrowbodies
 salary_wages_lnbodies <- get_salary_wages(45)   # For large narrowbodies
@@ -38,13 +39,13 @@ salary_wages_sample
 # Check the number of observations in the combined sample
 length(salary_wages_sample)
 
-# If you need exactly 28 observations, you can either take the first 28, sample 28 randomly, or apply some selection method.
-# Randomly select 28 observations from the combined data
+# If you need exactly 23 observations, you can either take the first 23, sample 23 randomly, or apply some selection method.
+# Randomly select 23 observations from the combined data
 set.seed(123)  # For reproducibility
-salary_wages_sample_28 <- sample(salary_wages_sample, 28, replace = FALSE)
-salary_wages_sample_28
+salary_wages_sample_23 <- sample(salary_wages_sample, 23, replace = FALSE)
+salary_wages_sample_23
 # View the sample of 28 observations
-print(salary_wages_sample_28)
+print(salary_wages_sample_23)
 
 ## Assuming these functions and salary data extraction methods have already been defined:
 get_modes <- function(data) {
@@ -95,13 +96,13 @@ combined_salary_wages <- c(salary_wages_snbodies, salary_wages_lnbodies, salary_
 
 # If you want to take exactly 28 samples, you can sample from combined data
 set.seed(123)  # For reproducibility
-salary_wages_sample_28 <- sample(combined_salary_wages, 28, replace = FALSE)
+salary_wages_sample_23 <- sample(combined_salary_wages, 23, replace = FALSE)
 
 # Get frequency distribution for the sample data
-frequency_distribution_sample <- get_frequency_distribution(salary_wages_sample_28)
+frequency_distribution_sample <- get_frequency_distribution(salary_wages_sample_23)
 
 # Print the frequency distribution for the sample
-cat("Frequency Distribution for Sample of 28 Observations:\n")
+cat("Frequency Distribution for Sample of 23 Observations:\n")
 print(frequency_distribution_sample)
 
 # Perform analysis on the sample
@@ -135,8 +136,8 @@ print_analysis <- function(wage_data, title) {
   cat("\n\n")
 }
 
-# Perform analysis on the 28 sample
-print_analysis(salary_wages_sample_28, "Salary Wages Sample of 28 Observations")
+# Perform analysis on the 23 sample
+print_analysis(salary_wages_sample_23, "Salary Wages Sample of 23 Observations")
 
 # Plot the histogram for the sample data
 plot_histogram <- function(frequency_distribution, window_title) {
@@ -152,4 +153,5 @@ plot_histogram <- function(frequency_distribution, window_title) {
 }
 
 # Plot histogram for the sample frequency distribution
-plot_histogram(frequency_distribution_sample, "Histogram of Salary Wages Sample of 28 Observations")
+plot_histogram(frequency_distribution_sample, "Histogram of Salary Wages Sample of 23 Observations")
+
